@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+ 
+    --radius: 0.5rem;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.stroke {
+  -webkit-text-stroke: 1px white;
+}
+
+/* ==================== Navbar ====================== */
+.Nav__ {
+  @apply fixed z-20 flex justify-center w-full px-10 bg-black;
+}
+.Nav__List {
+  @apply space-x-5 font-bold text-white me-10 ;
+}
+/* ==================== Navbar Mobile ====================== */
+.Nav__List__Mobile {
+  @apply py-2 text-center border-4 bg-slate-400 hover:bg-red-500 hover:text-black;
+}
+/* ||||||| Users |||||||| */
+/* ==================== Welcome ====================== */
+.Welcome__ {
+  @apply w-screen relative lg:w-[1024px] lg:rounded-[20px] h-[600px] bg-gradient-to-r to-[#5C1E03] from-[#7506068A];
+}
+.Welcome__Text {
+  @apply md:text-[20px] text-[20px];
+}
+.Welcome__Kotak__Suara {
+  @apply absolute top-[0px] md:right-[30px] right-[20px] md:w-[286px] md:h-[473px] w-[250px];
+}
+.Welcome__Text {
+  @apply md:text-[20px] text-[20px];
+}
+/* ==================== Motto ====================== */
+.Motto__ {
+  @apply flex items-center justify-center w-screen lg:w-[1024px] px-10 py-40 text-center;
+}
+
+/* ==================== Modal Vote ====================== */
+.Modal__Paslon {
+  @apply absolute flex items-center justify-center rounded-full top-3 right-2 w-14 h-14 bg-slate-400 ring-4 ring-white group-hover/modal:bg-pink-400 group-focus/modal:bg-pink-400;
+}
+
+
+/* ///////////////////// ADMIN ///////////////////// */
+
+/* ================== table ======================= */
+.Table__Header {
+  @apply border ps-2 pe-40 bg-slate-200 border-slate-300;
+}
+.Table__List {
+  @apply border ps-2 border-slate-300;
+}
+
+
+
+
+
+
+

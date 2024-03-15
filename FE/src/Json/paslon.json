@@ -1,0 +1,102 @@
+[
+    {
+        "no": "1",
+        "name": "SURYA SURYA",
+        "text": "text-[#5E5400]",
+        "bg1": "[#FFCD56]",
+        "bg2": "[#5E5400]",
+        "akumulasi": "25%",
+        "vote": "117",
+        "addres": "Kerajaan Black Clover",
+        "vimis": "Memindahkan Indonesia ke Isekai.",
+        "vimi": [
+            {
+                "title": "Memindahkan Indonesia ke Isekai."
+            },
+            {
+                "title": "Nonton anime 3x sehari."
+            },
+            {
+                "title": "Melakukan peresapan pada budaya jepang."
+            }
+        ],
+        "koalisi": [
+            {
+                "partai": "Partai Persatuan Wiboo."
+            },
+            {
+                "partai": "Partai Redbull."
+            },
+            {
+                "partai": "Partai Black Magic."
+            }
+        ]
+    },
+    {
+        "no": "2",
+        "name": "CINTARA",
+        "text": "text-[#005E4D]",
+        "bg1": "[#36A2EB]",
+        "bg2": "[#005E4D]",
+        "addres": "Kerajaan Da Wang Raoming",
+        "akumulasi": "25%",
+        "vote": "117",
+        "vimis": "Nonton anime 3x sehari.",
+        "vimi": [
+            {
+                "title": "Memindahkan Indonesia ke Isekai."
+            },
+            {
+                "title": "Nonton anime 3x sehari."
+            },
+            {
+                "title": "Melakukan peresapan pada budaya jepang."
+            }
+        ],
+        "koalisi": [
+            {
+                "partai": "Partai Persatuan Wiboo."
+            },
+            {
+                "partai": "Partai Redbull."
+            },
+            {
+                "partai": "Partai Black Magic."
+            }
+        ]
+    },
+    {
+        "no": "3",
+        "name": "CINTARA SURYA PALOH",
+        "text": "text-[#5E0000]",
+        "bg1": "[#FF6384]",
+        "bg2": "[#5E0000]",
+        "akumulasi": "25%",
+        "vote": "117",
+        "addres": "Kerajaan One Piece",
+        "vimis": "peresapan pada budaya jepang.",
+        "vimi": [
+            {
+                "title": "Memindahkan Indonesia ke Isekai."
+            },
+            {
+                "title": "Nonton anime 3x sehari."
+            },
+            {
+                "title": "Melakukan peresapan pada budaya jepang."
+            }
+        ],
+        "koalisi": [
+            {
+                "partai": "Partai Persatuan Wiboo."
+            },
+            {
+                "partai": "Partai Redbull."
+            },
+            {
+                "partai": "Partai Black Magic."
+            }
+        ]
+    }
+    
+]
