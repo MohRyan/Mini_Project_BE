@@ -13,6 +13,9 @@ Route.post("/login", UserControllers.login)
 
 // === Users Route
 Route.get("/users", UserControllers.find)
+Route.get("/users/user", UserControllers.findUser)
+Route.get("/users/admin", UserControllers.findAdmin)
+// Route.get("/users/admin/:id", UserControllers.findAdminWithId)
 Route.delete("/users/:id", UserControllers.delete)
 Route.patch("/users/:id", UserControllers.update)
 

@@ -10,13 +10,14 @@ import { AddPaslon } from './pages/Admin/AddPaslon.tsx';
 import { Navigate, Outlet, Route, Routes, } from 'react-router-dom'
 import { Users } from './pages/Users/Users.tsx'
 import { Detail } from './pages/Users/Detail.tsx';
+import AddArticle from './pages/Admin/AddArticle.tsx';
 
 
 function App() {
 
   // React.useEffect(() => {
-  //   localStorage.removeItem("Users")
-  //   localStorage.removeItem("Admin")
+  //   const data = "haloooooo"
+  //   console.log("🚀 ~ React.useEffect ~ data:", data)
   // }, [])
 
   // function PrivateRoute() {
@@ -55,6 +56,7 @@ function App() {
         <Route path="/listpaslon" element={<ListPaslon />} />
         <Route path="/addpartai" element={<AddPartai />} />
         <Route path="/addpaslon" element={<AddPaslon />} />
+        <Route path="/addarticle" element={<AddArticle />} />
 
       </Routes>
     </>

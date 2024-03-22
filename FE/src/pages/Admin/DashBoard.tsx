@@ -1,6 +1,10 @@
 import { Navbar } from "../../components/Navbar"
 import paslon from "../../assets/images/paslon.png"
 import Paslon from "../../Json/paslon.json"
+import { JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useEffect, useState } from "react"
+import { useGet } from "@/lib/useFetch"
+import axios from 'axios'
+
 
 const listTable = [
     {
@@ -34,14 +38,25 @@ const listTable = [
 
 ]
 
+// const [data, setData] = useState()
+
 
 export const DashBoard = () => {
+    const [data, setData] = useState<any>([])
+
+    useEffect(() => {
+        useGet("http://localhost:4000/api/v1/users/user", setData)
+        console.log(data)
+    }, [])
     return (
         <div className="flex flex-col items-center">
             <Navbar admin={""} />
             <div className="flex w-[1440px] flex-col items-center justify-center pt-10">
                 <div className="flex flex-col items-center mb-5 lg:py-20">
                     <b className="py-10 text-4xl text-fisrt">DASHBOARD</b>
+                    {data.map((item: { id: any; firstName: any }) => (
+                        <h1 key={item.id}>{item.firstName}</h1>
+                    ))}
                     <div className="flex flex-col items-center justify-center w-full h-auto lg:flex-row">
                         {Paslon.map(item => (
                             <div className="flex flex-col items-center justify-center w-full mx-4">

@@ -13,7 +13,7 @@ export const Detail = () => {
             <Navbar users={""} />
             <div className="flex justify-center w-screen py-10 bg-page">
                 <div className="w-[1440px] bg-white p-10">
-                    <Link to="/users" className="absolute"><ArrowBigLeft size={45} /></Link>
+                    <Link to="/" className="absolute"><ArrowBigLeft size={45} /></Link>
                     {article.map(item => (
                         <div className="flex flex-col items-center">
                             <p>Berita Hari ini</p>

@@ -33,6 +33,7 @@ export default new (class UserService {
 
   // ================== Get Data Users ===================
 
+  // ==== Get All Data Users
   async find(): Promise<any> {
     try {
       const users = await dataSource
@@ -45,6 +46,65 @@ export default new (class UserService {
       throw error
     }
   }
+  // ==== Get All Data User
+  async findUser(): Promise<any> {
+    try {
+      const users = await dataSource
+        .getRepository(Users)
+        .createQueryBuilder("users")
+        .getMany()
+
+      const user = users.filter(item => {
+        if (item.role == "user") {
+          // console.log(item)
+          return item
+        }
+      })
+      return user
+    } catch (error) {
+      throw error
+    }
+  }
+  // ==== Get All Data Admin
+  async findAdmin(): Promise<any> {
+    try {
+      const users = await dataSource
+        .getRepository(Users)
+        .createQueryBuilder("users")
+        .getMany()
+
+      // const admin = users.filter(item => {
+      //   if (item.role == "admin") {
+      //     return item
+      //   }
+      // })
+      const admin = users.filter(item => {
+        if (item.role == "admin") {
+          return item
+        }
+      })
+      return admin
+    } catch (error) {
+      throw error
+    }
+  }
+  // async findAdminWithId(id: number): Promise<any> {
+  //   try {
+  //     const users = await dataSource
+  //       .getRepository(Users)
+  //       .createQueryBuilder("users")
+  //       .getMany()
+
+  //     const admin = users.filter(item => {
+  //       if (item.id == id) {
+  //         return item
+  //       }
+  //     })
+  //     return admin
+  //   } catch (error) {
+  //     throw error
+  //   }
+  // }
 
   async login(username: string, password: string): Promise<any> {
     try {

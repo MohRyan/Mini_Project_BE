@@ -6,11 +6,13 @@ import { useEffect, useState } from "react"
 
 export const ListPartai = () => {
     const [partai, setPartai] = useState<Array<any>>([])
+
     const getPartai = async () => {
         const response = await fetch("http://localhost:4000/api/v1/partai")
         const data = await response.json()
         setPartai(data.data)
     }
+
 
     useEffect(() => {
         getPartai()
@@ -36,13 +38,13 @@ export const ListPartai = () => {
                     <Link to={"/addpartai"} className="text-end"><Button title={"+ Add Partai"} hover={"text-white hover:opacity-80 rounded-md"} /></Link>
                     <table className="text-left border border-collapse table-auto border-slate-400 border-spacing-x-5">
                         <thead>
-                            <tr className="text-center">
+                            <tr className="">
                                 <th className="px-2 text-center border bg-slate-200 border-slate-300">No. Urut</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Logo</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Ketua Umum</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Visi & Misi</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Alamat</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Setting</th>
+                                <th className="Table__Header">Logo</th>
+                                <th className="Table__Header">Ketua Umum</th>
+                                <th className="Table__Header">Visi & Misi</th>
+                                <th className="Table__Header">Alamat</th>
+                                <th className="Table__Header">Setting</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,22 +52,24 @@ export const ListPartai = () => {
                                 partai.map((item, index) => (
                                     <tr key={index}>
                                         <td className="px-2 text-center border border-slate-300">{item.no}</td>
-                                        <td className="px-5 border border-slate-300"><img src={item.logo} width={"78px"} height={"94px"} alt="" /></td>
-                                        <td className="border ps-2 pe-8 border-slate-300">{item.ketum}</td>
-                                        <td className="border ps-2 pe-8 border-slate-300 text-wrap w-96">
+                                        <td className="Table__List__Logo"><Link to={"#"} className="flex items-center justify-center py-5"><img src={item.logo} width={"78px"} height={"94px"} alt="" /></Link></td>
+                                        <td className="Table__List">{item.ketum}</td>
+                                        <td className="Table__List">
                                             <ul>
                                                 <li>* {item.visimisi}</li>
                                             </ul>
 
                                         </td>
-                                        <td className="border ps-2 pe-8 border-slate-300">
+                                        <td className="Table__List">
                                             <ul>
                                                 <li>* {item.address}</li>
                                             </ul>
                                         </td>
-                                        <td className="flex items-center px-20 py-2 space-x-10 border h-28 border-slate-300">
-                                            <button className="flex flex-col items-center"><Edit /> Edit</button>
-                                            <button className="flex flex-col items-center" onClick={() => deletePartai(item.id)}><Delete /> Delete</button>
+                                        <td className="Table__List">
+                                            <div className="flex items-center justify-center space-x-10">
+                                                <button className="flex flex-col items-center"><Edit /> Edit</button>
+                                                <button className="flex flex-col items-center" onClick={() => deletePartai(item.id)}><Delete /> Delete</button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))

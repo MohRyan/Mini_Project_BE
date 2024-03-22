@@ -12,9 +12,9 @@ export const Navbar = (props: { admin?: "hidden" | "", users?: "hidden" | "" }) 
     const { admin = "hidden", users = "hidden" } = props
     const [navbarMobile, setNavbarMobile] = useState<Boolean>(false)
     const [isLogin, setIsLogin] = useState<Boolean>(false)
-    const [isRegister, setIsRegister] = useState<Boolean>(false)
     const [login, setLogin] = useState<Boolean>(false)
-    const [register, setRegister] = useState<Boolean>(false)
+    // const [isRegister, setIsRegister] = useState<Boolean>(false)
+    // const [register, setRegister] = useState<Boolean>(false)
 
     const [showLogin, setShowLogin] = useState<Boolean>(false)
     const [showRegister, setShowRegister] = useState<Boolean>(false)
@@ -32,6 +32,7 @@ export const Navbar = (props: { admin?: "hidden" | "", users?: "hidden" | "" }) 
         setShowRegister(!showRegister)
     }
 
+
     const handleNavbar = () => {
         setNavbarMobile(!navbarMobile)
     }
@@ -41,24 +42,19 @@ export const Navbar = (props: { admin?: "hidden" | "", users?: "hidden" | "" }) 
         setLogin(!login)
     }
 
-    const handleIsRegister = () => {
-        setIsRegister(!isRegister)
-        setRegister(!register)
-    }
-
     return (
         <div className="Nav__">
             {
                 !showLogin ? '' : <Login showLogin={handleShowLogin} isLogin={handleIsLogin} change={handleChange} />
             }
             {
-                !showRegister ? '' : <Register showRegister={handleShowRegister} showLogin={handleShowLogin} isRegister={handleIsRegister} change={handleChange} />
+                !showRegister ? '' : <Register showRegister={handleShowRegister} showLogin={handleShowLogin} change={handleChange} />
             }
 
             <div className="flex lg:container w-full justify-between h-[64px]">
                 <div className="flex items-center">
-                    <Link to={"/users"} onClick={handleIsLogin}><img src={logo} alt="" className={`ps-5 md:ps-0 ${users}`} /></Link>
-                    <Link to={"/admin"} onClick={handleIsLogin}><img src={logo} alt="" className={`pspace-y-3s-5 md:ps-0 ${admin}`} /></Link>
+                    <Link to={"/"}><img src={logo} alt="" className={`ps-5 md:ps-0 ${users}`} /></Link>
+                    <Link to={"/admin"}><img src={logo} alt="" className={`pspace-y-3s-5 md:ps-0 ${admin}`} /></Link>
                     <p className={`md:text-white ps-3 font-bold md:text-sm text-black text-xl ${users}`}>PEMILU PRESIDEN DUMWAYS.ID</p>
                     <p className={`text-white ps-3 font-bold text-xl ${admin}`}>DASHBOARD PEMILU</p>
                 </div>
@@ -77,6 +73,8 @@ export const Navbar = (props: { admin?: "hidden" | "", users?: "hidden" | "" }) 
                     </ul>
                     <ul className={`flex ${admin} cursor-pointer flex-col text-white font-bold border-y-2 bg-slate-400`}>
                         <Link to="/admin"><li className="Nav__List__Mobile">Dashboard</li></Link>
+                        <Link to="/listpartai"><li className="Nav__List__Mobile">List Admin</li></Link>
+                        <Link to="/listpartai"><li className="Nav__List__Mobile">List Users</li></Link>
                         <Link to="/listpartai"><li className="Nav__List__Mobile">Partai</li></Link>
                         <Link to="/listpaslon"><li className="Nav__List__Mobile">Paslon</li></Link>
                     </ul>
@@ -102,9 +100,15 @@ export const Navbar = (props: { admin?: "hidden" | "", users?: "hidden" | "" }) 
                         <li><Link to="/vote">Voting</Link></li>
                     </ul>
                     <ul className={`${admin} flex Nav__List`}>
+                        <li><Link to="/listadmin">List Admin</Link></li>
+                        <li>|</li>
+                        <li><Link to="/listusers">List Users</Link></li>
+                        <li>|</li>
                         <li><Link to="/listpartai">Partai</Link></li>
                         <li>|</li>
                         <li><Link to="/listpaslon">Paslon</Link></li>
+                        <li>|</li>
+                        <li><Link to="/addarticle">Add Article</Link></li>
                     </ul>
                     <div>
                         {

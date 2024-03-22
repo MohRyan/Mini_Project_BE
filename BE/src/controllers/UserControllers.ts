@@ -25,6 +25,34 @@ export default new class UserControllers {
       return res.status(500).json({ message: error })
     }
   }
+  async findUser(req: Request, res: Response): Promise<Response> {
+    try {
+      const user = await UserServices.findUser()
+
+      return res.status(200).json(user)
+    } catch (error) {
+      return res.status(500).json({ message: error })
+    }
+  }
+  async findAdmin(req: Request, res: Response): Promise<Response> {
+    try {
+      const admin = await UserServices.findAdmin()
+
+      return res.status(200).json(admin)
+    } catch (error) {
+      return res.status(500).json({ message: error })
+    }
+  }
+  // async findAdminWithId(req: Request, res: Response): Promise<Response> {
+  //   try {
+  //     const user_id = parseInt(req.params.id)
+  //     const admin = await UserServices.findAdminWithId(user_id)
+
+  //     return res.status(200).json(admin)
+  //   } catch (error) {
+  //     return res.status(500).json({ message: error })
+  //   }
+  // }
 
   async login(req: Request, res: Response): Promise<Response> {
     try {

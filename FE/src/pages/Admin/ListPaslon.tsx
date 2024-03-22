@@ -11,7 +11,7 @@ export const ListPaslon = () => {
         const response = await fetch("http://localhost:4000/api/v1/paslon")
         const data = await response.json()
         setPaslon(data.data)
-        console.log(paslon)
+        // console.log(paslon)
     }
 
     useEffect(() => {
@@ -38,11 +38,11 @@ export const ListPaslon = () => {
                         <thead>
                             <tr>
                                 <th className="px-2 text-center border bg-slate-200 border-slate-300">No. Urut</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Image</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Name</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Visi & Misi</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Koalisi</th>
-                                <th className="border ps-2 pe-5 bg-slate-200 border-slate-300">Setting</th>
+                                <th className="Table__Header">Image</th>
+                                <th className="Table__Header">Name</th>
+                                <th className="Table__Header">Visi & Misi</th>
+                                <th className="Table__Header">Koalisi</th>
+                                <th className="Table__Header">Setting</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,22 +50,24 @@ export const ListPaslon = () => {
                                 paslon.map((item, index) => (
                                     <tr key={index}>
                                         <td className="px-2 text-center border border-slate-300">{item.no}</td>
-                                        <td className="border ps-2 pe-8 border-slate-300"><img src={item.image} width={"78px"} height={"94px"} alt="" /></td>
-                                        <td className="border ps-2 pe-8 border-slate-300">{item.name}</td>
-                                        <td className="border ps-2 pe-8 border-slate-300">
+                                        <td className="border ps-2 pe-8 border-slate-300"><Link to={"#"} className="flex items-center justify-center py-5"><img src={item.image} width={"78px"} height={"94px"} alt="" /></Link></td>
+                                        <td className="Table__List">{item.name}</td>
+                                        <td className="Table__List">
                                             <ul>
                                                 <li>* {item.visimisi}</li>
                                             </ul>
 
                                         </td>
-                                        <td className="border ps-2 pe-8 border-slate-300">
+                                        <td className="Table__List">
                                             <ul>
                                                 <li>* {item.koalisi}</li>
                                             </ul>
                                         </td>
-                                        <td className="flex items-center px-20 py-2 space-x-10 border h-28 border-slate-300">
-                                            <button className="flex flex-col items-center"><Edit /> Edit</button>
-                                            <button className="flex flex-col items-center" onClick={() => deletePaslon(item.id)}><Delete /> Delete</button>
+                                        <td className="Table__List">
+                                            <div className="flex items-center justify-center space-x-10">
+                                                <button className="flex flex-col items-center"><Edit /> Edit</button>
+                                                <button className="flex flex-col items-center" onClick={() => deletePaslon(item.id)}><Delete /> Delete</button>
+                                            </div>
                                         </td>
                                     </tr>
                                 ))

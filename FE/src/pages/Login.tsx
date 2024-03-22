@@ -3,6 +3,8 @@ import { Button } from "../components/Button"
 import { Input } from "../components/elements/input"
 import axios from 'axios'
 import { useNavigate, Link, Navigate } from "react-router-dom";
+import { Eye, EyeOff } from "lucide-react";
+
 
 export type IAuth = {
     // isAdmin: boolean
@@ -10,20 +12,28 @@ export type IAuth = {
     password: string;
 };
 
-export const Login = ({ showLogin, isLogin, change }: any) => {
+export const Login = ({ showLogin, change, isLogin }: any) => {
 
     const [value, setValue] = React.useState<IAuth>({
         username: '',
         password: ''
     })
 
+    const focus: any = React.useRef()
+
+    React.useEffect(() => {
+        focus.current.focus()
+    }, [])
+
     const saveLogin = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         try {
-            await axios.post("http://localhost:4000/api/v1/login", {
-                username: value.username,
-                password: value.password
-            });
+            // await axios.post("http://localhost:4000/api/v1/login", {
+            //     username: value.username,
+            //     password: value.password
+            // });
+            addEventListener('submit', showLogin)
+            addEventListener('submit', isLogin)
             console.log(value)
         } catch (error) {
             console.log(error);
@@ -35,7 +45,7 @@ export const Login = ({ showLogin, isLogin, change }: any) => {
             ...value,
             [e.target.name]: e.target.value,
         });
-        console.log(value)
+        console.log(e.target.value)
     };
     // const handleUser = () => {
     //     const users = localStorage.getItem("Users")
@@ -62,6 +72,18 @@ export const Login = ({ showLogin, isLogin, change }: any) => {
     //     }
     // }
 
+    const [typePass, setTypePass] = React.useState("password")
+    const [showPass, setShowPass] = React.useState(false)
+
+    const handleShowPass = () => {
+        setTypePass("text")
+        setShowPass(true)
+    }
+
+    const handleHiddPass = () => {
+        setShowPass(false)
+        setTypePass("password")
+    }
     return (
         <div className='fixed z-50 flex items-center justify-center w-screen h-screen bg-black bg-opacity-75'>
             <form className={`flex flex-col items-center justify-center`} onSubmit={saveLogin}>
@@ -70,10 +92,16 @@ export const Login = ({ showLogin, isLogin, change }: any) => {
                         <h1 className="my-5 text-3xl font-bold text-fisrt">Login</h1>
                         <button className="my-5 text-3xl font-bold" onClick={showLogin}>X</button>
                     </div>
-                    <Input title={"username"} placeHolder={undefined} type={"text"} onchange={getInput} name={"username"} />
-                    <Input title={"password"} placeHolder={undefined} type={"text"} onchange={getInput} name={"password"} />
+                    <Input title={"username"} ref={focus} placeHolder={undefined} type={"text"} onchange={getInput} name={"username"} />
+                    {/* <Input title={"password"} placeHolder={undefined} type={"text"} onchange={getInput} name={"password"} /> */}
+                    <div className="relative">
+                        <Input title={"Password"} placeHolder={undefined} type={typePass} onchange={getInput} name={"password"} />
+                        <div className="absolute cursor-pointer right-1 top-10">
+                            {!showPass ? <Eye onClick={handleShowPass} /> : <EyeOff onClick={handleHiddPass} />}
+                        </div>
+                    </div>
                     <Button title={"Login"} type='submit' hover={"text-white hover:bg-opacity-60 rounded-lg w-full"} />
-                    <p className="flex justify-between">Dont have an account ? <Link to="#" onClick={change} className="text-link">Register</Link></p>
+                    <p className="flex justify-between">Dont have an account ? <Link to="#" onClick={change} className="text-blue-500">Register</Link></p>
                 </div>
             </form>
         </div>
